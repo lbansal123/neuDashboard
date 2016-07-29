@@ -1,0 +1,50 @@
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="First name" ng-model="HcpRegisterArr.HcpFname">
+    {{HcpFname}}
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" id="lname" placeholder="Last name"  ng-model="HcpRegisterArr.HcpLname">
+  </div>
+  <div class="form-group">
+   <!--  <select class="form-control"  ng-model="HcpBirthYear">
+      <option value="">Year of birth</option>
+    </select> -->
+    <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="HcpRegisterArr.HcpBirthYear" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+  </div>
+  <div class="form-group">
+    <div class="radio">
+      <h3>Validate with</h3>
+     <!--  <label class="radio-inline"><input type="radio" name="validateHcp"  ng-model="HcpRegisterArr.HcpValidate" ng-value="'SLN number'">SLN number</label>
+      <label  class="radio-inline"><input type="radio" name="validateHcp" ng-model="HcpRegisterArr.HcpValidate" ng-value="'Dea number'">Dea number</label> -->
+
+      <div class="hcpValidateTab">
+        <span ng-class="{active: tabValue(1)}" ng-click="openMe(1)">SLN Number</span>
+        <span ng-click="openMe(2)" ng-class="{active: tabValue(2)}">DEA Number</span>
+
+        <div class="tabContent">
+          <div ng-show="tabValue(1)">
+                <input type="text" name="validateHcp"  ng-model="HcpRegisterArr.HcpValidateSlnNumber" placeholder="SLN Number">
+                <select ng-model="HcpRegisterArr.HcpValidateSlnState">
+                    <option value="">State of licence</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+          </div>
+          <div ng-show="tabValue(2)">
+                <input type="text" name="validateHcp"  ng-model="HcpRegisterArr.HcpValidateDeaNumber" placeholder="Enter your DEA Number">
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+  <!-- <div class="radio">
+    <label><input type="radio" name="radio"> HCP</label>
+    <label><input type="radio" name="radio"> Patient</label>
+  </div> -->
+  <a ui-sref="register.tab2" >Submit</a>
+

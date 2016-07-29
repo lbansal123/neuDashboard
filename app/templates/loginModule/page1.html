@@ -1,0 +1,29 @@
+
+  <div class="hcpLoginTab">
+    <span ng-class="{active: isSet(1)}" ng-click="isOpen(1)">HCP</span>
+    <span ng-class="{active: isSet(2)}" ng-click="isOpen(2)">Patient</span>
+    <span ng-class="{active: isSet(3)}" ng-click="isOpen(3)">Login</span>
+  </div>
+  <div class="tabContent">
+    <div ng-show="isSet(1)">
+        <form action="" ng-submit="loginHcp()">
+            <div class="form-group">
+                <input type="email" placeholder="enter your email" ng-model="hcpLoginArr.hcpLoginEmail" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="enter your password" ng-model="hcpLoginArr.hcpLoginPass" class="form-control">
+                {{hcpLoginArr.hcpLoginPass}}
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" >
+            </div>
+        </form>
+      
+    </div>
+    <div ng-show="isSet(2)">
+      2
+    </div>
+    <div ng-show="isSet(3)">
+      3
+    </div>
+  </div>

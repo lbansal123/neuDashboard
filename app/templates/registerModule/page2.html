@@ -1,0 +1,52 @@
+<!-- form-profile.html -->
+<h3>Account Information</h3>
+<div class="form-group">
+    <input type="email" class="form-control" name="hcpEmail" ng-model="HcpRegisterArr.HcpEmail" placeholder="Email Address">
+    <span>{{HcpRegisterArr.HcpEmail}}</span>
+</div>
+
+<div class="form-group">
+    <input type="passowrd" class="form-control" name="hcpPass" ng-model="HcpRegisterArr.hcpPass" placeholder="Password">
+</div>
+<div class="form-group">
+    <input type="passowrd" class="form-control" name="hcpConPass" ng-model="HcpRegisterArr.hcpConPass" placeholder="confirm password">
+</div>
+
+<h3>Practice Information</h3>
+<div class="form-group">
+	<div class="radio">
+		<label class="radio-inline"><input type="radio" name="PracticeHcpInfo"  ng-model="HcpRegisterArr.hcpPractPriv" ng-value="'Private Practice'">Private Practice</label>
+		<label  class="radio-inline"><input type="radio" name="PracticeHcpInfo" ng-model="HcpRegisterArr.hcpPractInstitution" ng-value="'Institution'">Institution</label>
+		<label  class="radio-inline"><input type="radio" name="PracticeHcpInfo" ng-model="HcpRegisterArr.hcpPractHospital" ng-value="'Hospital'">Hospital</label>
+		<br>
+		<input type="text" placeholder="Practice Name" ng-model="HcpRegisterArr.practiceName" class="form-control">
+		<input type="text" placeholder="Practice Address" ng-model="HcpRegisterArr.practiceAddress" class="form-control" ng-keyup="autoSuggestion()">
+        <ul class="autoSuggestion" ng-repeat = "suggestion in Suggestions">
+            <li ng-click="suggestionInsert($index)"><a href="">{{suggestion.text}}</a></li>
+        </ul>
+        <input type="button" name="Submit" ng-click="newAddressData()" value="Address Lookup">
+	</div>
+    <div class="addressModal" ng-if="addressLookupPopup">
+        <h3>Suggested Address</h3>
+        <div class="matchedAddress" ng-click="updateAddress()"><a href="">{{Details}}</a></div>
+        <div ng-if="!dataSuggestion"><b>This address is not correct.</b></div>
+        <input type="button" name="tryAnotherSearch" value="Try Another Search">
+    </div>
+    <div class="StoredAddress" ng-if="storedAddress">
+        <h3>Stored Address</h3>
+        <p>Practice Street: <b>{{practiceStreet}}</b></p>
+        <p>Practice City/State: <b>{{practiceCityState}}</b></p>
+        <p>Practice Zip Code: <b>{{zipCode}}</b></p>
+    </div>
+</div>
+
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+    <a class="btn btn-block btn-info" ng-click="HcpStep1()" ui-sref="register.verifyEmail">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right" ></span>
+    </a>
+    <a class="btn btn-block btn-info" ng-click="logoutHcp()" >
+    Logout <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

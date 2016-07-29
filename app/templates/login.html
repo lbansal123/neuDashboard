@@ -1,0 +1,13 @@
+<div id="hcpSignUp" >
+	<h1>Healthcare Professional Registration</h1>
+	<div id="status-buttons" class="text-center">
+	<a ui-sref-active="active" ui-sref=".tab1"><span>1</span></a>
+	<a ui-sref-active="active" ui-sref=".tab2"><span>2</span></a>
+	</div>
+
+	<form ng-submit="processForm()">
+
+	    <!-- our nested state views will be injected here -->
+	    <div id="form-views" ui-view></div>
+	</form>
+</div>
